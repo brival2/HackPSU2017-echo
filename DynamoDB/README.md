@@ -6,7 +6,7 @@
 ##Primary Partition Key: 	
 - id (String)
 
-Attribute:
+## Attribute:
 - status (String)
 - text (String)
 - url (String)
