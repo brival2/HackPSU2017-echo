@@ -3,7 +3,7 @@
 ## Table Name:
 - posts
 
-##Primary Partition Key: 	
+## Primary Partition Key: 	
 - id (String)
 
 ## Attribute:
