@@ -41,8 +41,8 @@ Many aspects of javascript/python, especially with functions that have many depe
 Wherever the wind takes us
 
 ## Contributions
-- Michael Li: Lambda functions in python & nodej.s, and learning Alexa's 'intents'
-- Zeying Li: Set up Amazon Polly Text To Speech AI, Amazon Echo Skill and API Gateway.
+- [Mike L.](https://github.com/Interplay "Mike L.'s Repository") : Lambda functions in python & nodej.s, and learning Alexa's 'intents'
+- [Zeying L.](https://github.com/zeyingli "Zeying L.'s Repository") : Amazon Polly Text To Speech AI, Amazon Echo Skill and API Gateway.
 
 ## Try it out
 
