@@ -1,23 +1,12 @@
 
-// There are three sections, Text Strings, Skill Code, and Helper Function(s).
-// You can copy and paste the entire file contents as the code for a new Lambda function,
-//  or copy & paste section #3, the helper function, to the bottom of your existing Lambda code.
-
-
-// 1. Text strings =====================================================================================================
-//    Modify these strings and messages to change the behavior of your Lambda function
-
 const AWSregion = '';  
-const APP_ID = "";
+const APP_ID = ""; // App Id from Alexa Skill console
 var studentList=[	'postId'];
 
 function randomPhrase(array) {
     return(array[Math.floor(Math.random()*array.length)]);
 }
 
-
-// params[S] = variable;
-// 2. Skill Code =======================================================================================================
 
 const Alexa = require('alexa-sdk');
 const AWS = require('aws-sdk');
@@ -30,7 +19,6 @@ exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
 
     alexa.appId = event.context.System.application.applicationId === 'applicationId' ? 'applicationId' : APP_ID;
-    // alexa.dynamoDBTableName = 'YourTableName'; // creates new table for session.attributes
 
     alexa.registerHandlers(handlers);
     alexa.execute();
@@ -51,14 +39,14 @@ const handlers = {
 
         const friendName = this.event.request.intent.slots.friendname.value;
         console.log('Friend : ' + friendName);
-        var eyedee = randomPhrase(studentList);
-        console.log(eyedee);
-        console.log(eyedee.toString());
+        var stdID = randomPhrase(studentList);
+        console.log(stdID);
+        console.log(stdID.toString());
         var params = {
           TableName: 'posts',
           Key: {
               'id':{
-                  S: eyedee.toString()
+                  S: stdID.toString()
               }
           }
         };
@@ -78,7 +66,7 @@ const handlers = {
                 } else {
                     console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
 
-                    callback(data.Item.text.S);  // this particular row has an attribute called message
+                    callback(data.Item.text.S);
                 }
             });
         }
@@ -109,8 +97,3 @@ const handlers = {
         this.emit(':responseReady');
     }
 };
-
-//    END of Intent Handlers {} ========================================================================================
-// 3. Helper Function  =================================================================================================
-
-
